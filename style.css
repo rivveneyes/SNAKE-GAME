@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 canvas{
-height:200px;
-width: 200px;
+height:400px;
+width:300px;
 background-color: wheat;
 };

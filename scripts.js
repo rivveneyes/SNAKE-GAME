@@ -1,69 +1,91 @@
 const htmlBody= document.getElementById('body');
 const mainCanvas=document.getElementById("canvas");
-const ctx = mainCanvas.getContext('2d');
-
-// ctx.fillStyle=" red";
-// ctx.fillRect(10,10, 20,20);
-// ctx.fillStyle="orange";
-// ctx.fillRect(50,10,20,20);
-
-// //strokeRect()
-// ctx.lineWidth = 5;
-// ctx.strokeStyle = 'green';
-// ctx.strokeRect( 40,40,50,50);
-
-// ctx.clearRect(14 ,14,10,10);
-
-// ctx.fillStyle = "yellow";
-// ctx.fillText("hello world", 200, 20);
-
+const innerCanvas = mainCanvas.getContext('2d');
 
 // //PATHS;
 
 const snake ={
+    points:1,
     x:0,
     y:0,
     size:20,
-    dx: 5,
-    dy: 5,
+    dx: 20,
+    dy: 20,
     direction:null,
+    length:1,
+     body:[
+     ]
 }
+// snake.body.push({x:100,y:100});
+// console.log(snake.body[1].x)
 
-console.log(mainCanvas.width)
  function drawSnake(){  
-    ctx.clearRect(0,0, mainCanvas.width, mainCanvas.height)
-    ctx.fillStyle= "black";
-    ctx.fillRect(snake.y,snake.x, snake.size,snake.size);
-    requestAnimationFrame(drawSnake);
-    //wall detection
-    if (snake.y+snake.size>mainCanvas.width || snake.y<0){
+    
+    // wall detection
+    if (snake.x+snake.size>mainCanvas.width || snake.x<0){
     snake.dy *= -1;
     }
-     if (snake.x+snake.size>mainCanvas.height||snake.x<0){
+     if (snake.y +snake.size>mainCanvas.height||snake.y<0){
         snake.dx*=-1;  
     }
+
+
+    innerCanvas.clearRect(0,0, mainCanvas.width, mainCanvas.height)  
+    innerCanvas.fillStyle= "black";
+    innerCanvas.fillRect(
+        snake.x,
+        snake.y, 
+        snake.size,
+        snake.size);
+     
     //snake movement
     switch(snake.direction){
     case 'ArrowDown':
-    snake.x+= snake.dx;
+    snake.y+= snake.dx;
     break;
     case "ArrowLeft":
-    snake.y-= snake.dy;
+    snake.x-= snake.dy;
     break
     case "ArrowRight": 
-    snake.y+= snake.dy; 
+    snake.x+= snake.dy; 
     break 
     case "ArrowUp":
-    snake.x-=snake.dx;
+    snake.y-=snake.dx;
     break
     }
+    snake.body.push({x:snake.x,y:snake.y})
+    //console.log(snake.x+ ` ads `+snake.y)
+       
+        snake.body.forEach(block=>{ 
+            innerCanvas.fillStyle= "yellow";
+            innerCanvas.fillRect(
+                block.x,
+                block.y, 
+                snake.size,
+                snake.size);
+                innerCanvas.fillRect(block.x,block.y, snake.size,snake.size);
+        })
+        snake.body.pop(); 
+        // innerCanvas.fillStyle= "red";
+        // innerCanvas.fillRect(
+        //     snake.x+snake.dx,
+        //     snake.y,
+        //     snake.size,
+        //     snake.size);
+
+            //   innerCanvas.fillStyle= "red";
+   
+
+    // snake.body[0]={x:snake.x,y:snake.y}
+
+
+        
     
+
+    requestAnimationFrame(drawSnake);    
 }
 htmlBody.addEventListener("keydown", (e)=>{
-    console.log(e.key)
-    
     if(e.key === "ArrowUp"||e.key=== "ArrowDown"|| e.key=== "ArrowRight"||e.key=== "ArrowLeft"){
-        console.log('snake up')
         snake.direction= e.key;
     }
     }) 
