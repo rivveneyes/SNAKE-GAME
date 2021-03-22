@@ -6,14 +6,15 @@ const innerCanvas = mainCanvas.getContext('2d');
 
 const snake ={
     points:1,
-    x:0,
-    y:0,
     size:20,
     dx: 20,
     dy: 20,
     direction:null,
     length:1,
      body:[
+         {x:30,y:0},
+         {x:20,y:0},
+         {x:0,y:0}
      ]
 }
 // snake.body.push({x:100,y:100});
@@ -65,7 +66,10 @@ const snake ={
                 snake.size);
                 innerCanvas.fillRect(block.x,block.y, snake.size,snake.size);
         })
+        // console.log(snake.body.length)
+        if(snake.body.length>snake.points){
         snake.body.pop(); 
+    }
         // innerCanvas.fillStyle= "red";
         // innerCanvas.fillRect(
         //     snake.x+snake.dx,
@@ -82,14 +86,14 @@ const snake ={
         
     
 
-    requestAnimationFrame(drawSnake);    
+    // requestAnimationFrame(drawSnake);    
 }
 htmlBody.addEventListener("keydown", (e)=>{
     if(e.key === "ArrowUp"||e.key=== "ArrowDown"|| e.key=== "ArrowRight"||e.key=== "ArrowLeft"){
         snake.direction= e.key;
     }
     }) 
-drawSnake();
+setInterval(drawSnake,300);
 
    
 
