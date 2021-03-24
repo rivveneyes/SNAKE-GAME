@@ -17,7 +17,7 @@ else {
 function newPlace(){
 applePlaced.x=maxRandomNumber(Math.floor((Math.random()*mainCanvas.width-20)))
 applePlaced.y=maxRandomNumber(Math.floor((Math.random()*mainCanvas.height-20)))
-return snake.points+=1
+return 
 }
 
 function drawFruit(){
@@ -27,9 +27,9 @@ function drawFruit(){
         applePlaced.y, 
         snake.size,
         snake.size);
-
-        if(snake.body[snakeHead].x===applePlaced.x
-            &&snake.body[snakeHead].y===applePlaced.y){
+        if(snake.body[snake.body.length-1].x===applePlaced.x
+            &&snake.body[snake.body.length-1].y===applePlaced.y){
+            snake.points+=1
             newPlace();
         }
 }
