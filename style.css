@@ -2,7 +2,13 @@
     box-sizing: border-box;
 }
 canvas{
+display: block;
+border: 3px solid black;
 height:400px;
 width:300px;
 background-color: wheat;
-};
+margin:auto;
+}
+#score{
+    text-align: center;
+}
