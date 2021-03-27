@@ -25,7 +25,7 @@ htmlBody.addEventListener("keydown", (e)=>{
     
  })     
 
-setInterval(painCanvas,250)
+setInterval(painCanvas,100)
 function painCanvas(){  
     innerCanvas.clearRect(0,0, mainCanvas.width, mainCanvas.height);
     scoreDispaly.innerText=`Score: ${snake.points}`
@@ -55,19 +55,19 @@ function takeSnakeNextDirecton(){
 }
 
 function collisionCheck(){
-    if(snake.x+snake.size>mainCanvas.width){
+    if(snake.x>mainCanvas.width){
         resetGame()
         alert("You Lose,snake fell off map")
     }
-    if(snake.x+snake.size<0){
+    if(snake.x<0){
         resetGame()
         alert("You Lose,snake fell off map")
     }
-    if(snake.y+snake.size>mainCanvas.height){
+    if(snake.y>mainCanvas.height){
         resetGame()
         alert("You Lose,snake fell off map")
     }
-    if(snake.y+snake.size<0){
+    if(snake.y<0){
         resetGame()
         alert("You Lose,snake fell off map")
     }  

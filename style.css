@@ -1,14 +1,22 @@
 *{
     box-sizing: border-box;
+    margin:0;
 }
 canvas{
 display: block;
 border: 3px solid black;
 height:400px;
-width:300px;
+width:400px;
 background-color: wheat;
 margin:auto;
 }
 #score{
+    text-align: center;
+}
+#instructions{
+    background-color: grey;
+    width: 400px;
+    margin:auto;
+    padding:3px;
     text-align: center;
 }
