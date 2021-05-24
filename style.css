@@ -3,12 +3,12 @@
   margin: 0;
 }
 body {
-  display: flex;
   height: 100%;
   width: 100%;
   background-color: rgb(46, 206, 206);
 }
 .game-container {
+  position: relative;
   width: fit-content;
   height: fit-content;
   justify-content: center;
@@ -18,13 +18,20 @@ body {
   border: 5px solid white;
   border-radius: 8px;
   background-color: white;
+  padding-top: 30px;
 }
-#score {
+.scores {
+  display: flex;
+}
+#score,
+#highscore {
   background-color: white;
-  width: 100%;
+  width: 50%;
   text-align: center;
   padding: 10px;
+  font-size: 1.3rem;
 }
+
 canvas {
   border: 3px solid black;
   height: 400px;
@@ -34,6 +41,18 @@ canvas {
 p {
   width: 400px;
   padding: 10px 5px;
-
   background-color: rgb(190, 184, 184);
+}
+.alerts {
+  background-color: rgb(238, 83, 83);
+  color: white;
+  display: block;
+  text-align: center;
+  font-size: 1.4rem;
+  position: absolute;
+  width: 400px;
+  top: 10px;
+}
+.hidden {
+  display: none;
 }

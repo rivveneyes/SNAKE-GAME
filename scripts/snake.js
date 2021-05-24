@@ -2,7 +2,9 @@ const htmlBody = document.getElementById("body");
 const mainCanvas = document.getElementById("canvas");
 const innerCanvas = mainCanvas.getContext("2d");
 const scoreDispaly = document.getElementById("score");
-
+const alerts = document.querySelector(".alerts");
+const highscoreDisplay = document.getElementById("highscore");
+// scoreDisplay.innerText = `High Score: ${points}`;
 const snake = {
   size: 20,
   dimentionX: 20,
@@ -28,7 +30,7 @@ htmlBody.addEventListener("keydown", (e) => {
 setInterval(painCanvas, 100);
 function painCanvas() {
   innerCanvas.clearRect(0, 0, mainCanvas.width, mainCanvas.height);
-  scoreDispaly.innerText = `Score: ${snake.points}`;
+  scoresUpdate();
   takeSnakeNextDirecton();
   collisionCheck();
   updateSnake();
@@ -56,26 +58,27 @@ function takeSnakeNextDirecton() {
 function collisionCheck() {
   if (snake.x > mainCanvas.width) {
     resetGame();
-    alert("You Lose,snake fell off map");
+    lossAlert("You fell off the Map");
+    alert.class;
   }
   if (snake.x < 0) {
     resetGame();
-    alert("You Lose,snake fell off map");
+    lossAlert("You fell off the Map");
   }
   if (snake.y > mainCanvas.height) {
     resetGame();
-    alert("You Lose,snake fell off map");
+    lossAlert("You fell off the Map");
   }
   if (snake.y < 0) {
     resetGame();
-    alert("You Lose,snake fell off map");
+    lossAlert("You fell off the Map");
   }
 
   if (snake.direction !== null) {
     for (i = 0; i <= snake.body.length - 1; i++) {
       if (snake.x == snake.body[i].x && snake.y == snake.body[i].y) {
         resetGame();
-        alert("You Lose, snake ate tail");
+        lossAlert("You ate your tail");
       }
     }
   }
@@ -114,4 +117,23 @@ function drawSnakeBody() {
 function resetGame() {
   snake.direction = null;
   (snake.x = 0), (snake.y = 0), (snake.points = 0), (snake.body = []);
+}
+
+function lossAlert(dead) {
+  alerts.classList.remove("hidden");
+  alerts.innerText = `${dead}`;
+  setTimeout(() => {
+    alerts.innerText = " ";
+    alerts.classList.add("hidden");
+  }, 3000);
+}
+
+function scoresUpdate() {
+  scoreDispaly.innerText = `Score: ${snake.points}`;
+  let highscore = localStorage.getItem("highScore");
+  if (highscore !== null) {
+    highscoreDisplay.innerText = `High Score: ${highscore}`;
+  } else {
+    highscoreDisplay.innerText = `High Score:`;
+  }
 }
