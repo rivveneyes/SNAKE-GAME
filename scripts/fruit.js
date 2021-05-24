@@ -4,11 +4,11 @@ const applePlaced = {
 };
 
 function maxRandomNumber(number) {
-  if (number % 20 == 0) {
-    x = Math.floor(number / 20) * 20;
-    return x;
+  if (number % 20 === 0) {
+    return number === 700 ? number - 20 : number;
   } else {
-    return Math.floor(number / 20) * 20 + 20;
+    let edgelimits = Math.floor(number / 20) * 20;
+    return edgelimits < 20 ? edgelimits + 20 : edgelimits;
   }
 }
 function updateHighscore(points) {
