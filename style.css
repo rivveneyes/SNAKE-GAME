@@ -1,22 +1,39 @@
-*{
-    box-sizing: border-box;
-    margin:0;
+* {
+  box-sizing: border-box;
+  margin: 0;
 }
-canvas{
-display: block;
-border: 3px solid black;
-height:400px;
-width:400px;
-background-color: wheat;
-margin:auto;
+body {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(46, 206, 206);
 }
-#score{
-    text-align: center;
+.game-container {
+  width: fit-content;
+  height: fit-content;
+  justify-content: center;
+  margin: auto;
+  margin-top: 70px;
+  box-shadow: 0px 2px 10px rgba(16, 35, 208, 0.3);
+  border: 5px solid white;
+  border-radius: 8px;
+  background-color: white;
 }
-#instructions{
-    background-color: grey;
-    width: 400px;
-    margin:auto;
-    padding:3px;
-    text-align: center;
+#score {
+  background-color: white;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+canvas {
+  border: 3px solid black;
+  height: 400px;
+  width: 400px;
+  background-color: wheat;
+}
+p {
+  width: 400px;
+  padding: 10px 5px;
+
+  background-color: rgb(190, 184, 184);
 }
