@@ -11,6 +11,8 @@ body {
   position: relative;
   width: fit-content;
   height: fit-content;
+  width: -moz-fit-content;
+  height: -moz-fit-content;
   justify-content: center;
   margin: auto;
   margin-top: 70px;
