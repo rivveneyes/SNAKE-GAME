@@ -7,4 +7,6 @@
 I spent days on problems, I enjoyed the process of each step and that "AHA" moment when some thing finally clicked.
 In the end it was a 2 week process, along with alot of developer tool practice.</p>
 <h3>AUTHOR</h3>
-Joshua Garcia- full-stack Developer <a href="https://rivveneyes.github.io/">Website</a> |
+Joshua Garcia- <a href="https://joshua-personal-website.herokuapp.com/">My Site
+  </a>|<a href="https://www.linkedin.com/in/joshua-garica-04351520b/">Linkedin
+  </a>
